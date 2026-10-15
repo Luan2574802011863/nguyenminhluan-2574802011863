@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>BAI 1</h2>
+    <h2>CHUONG TRINH KIEM TRA SO CHAN HAY LE</h2>
+    <label for="">NHAP SO NGUYEN</label>
+    <input type="number" id="songuyen">
+    <br><br>
+    <button onclick="kiemTra()">Kiem Tra</button>
+    <p id="ketqua1"></p>
+
+    <h2>BAI 2</h2>
+    <h2> CHUONG TRINH TINH TUOI</h2>
+    <label for="">Nhap vao nam sinh cua ban</label>
+    <input type="number" id="namsinh">
+    <br><br>
+    <button onclick="tinhTuoi()">Tinh Tuoi</button>
+    <p id ="ketqua2"></p>
+
+    <h2>BAI 3</h2>
+    <h2> CHUONG TRINH SO MAY MAN</h2>
+    <label for="">NHAP SO TU 1-10 </label>
+    <input type="text" id="so" min="1" max="10">
+    <br>
+    <button onclick ="soMayMan()"> Xem ket qua</button>
+    <h3 id="ketqua3"></h3>
+
+    <h2>BAI 4</h2>
+      <h2>❤ XEM BOI TINH YEU</h2>
+    <label for="">Nhap ten ban</label>
+    <input type="text" id="tenban">
+    <br>
+    <label for="">Nhap ten nguoi ay</label>
+    <input type="text" id="tennguoiay">
+    <br><br>
+    <button onclick="xemBoi()"> Xem ket qua</button>
+    <h3 id="ketqua4"></h3>
+
+    <h2>BAI 5</h2>
+    <h2>CHUONG TRINH HOC LUC</h2>
+    <label for="">NHAP DIEM CUA BAN</label>
+    <input type="number" id="diem" min="0" max="100">
+    <br><br>
+    <button onclick="diemHocLuc()">ketqua</button>
+    <p id="ketqua5"></p>
+
+    <h2>BAI 6</h2>
+    <h2>OAN TU TI</h2>
+    <button onclick="oanTuTi('Da')">Da</button>
+    <button onclick="oanTuTi('Giay')">Giay</button>
+    <button onclick="oanTuTi('Keo')">Keo</button>
+    <p id="ketqua6"></p>
+
+    <h2>BAI 7</h2>
+    <h2>XAC MAY MAN</h2>
+    <button onclick="lacXucXac()">Lac xuc xac</button>
+    <p id="ketqua7"></p>
+
+    <h2>BAI 8</h2>
+    <h2> DOAN NGHE NGHIEP</h2>
+    <label>Nhap ten ban:</label>
+    <input type="text" id="ten">
+    <button onclick="duDoan()">Du doan</button>
+    <p id="ketqua8"></p>
+
+
+    <h2>BAI 9</h2>
+    <h2>QUAY THUONG MAY MAN</h2>
+    <button onclick="quayThuong()">Quay thuong</button>
+    <p id="ketqua9"></p>
+
+
+    <h2>BAI 10</h2> 
+    <h2>MAY TINH DON GIAN</h2>
+    <input type="number" id="so1" placeholder="Nhap so thu nhat">
+    <input type="number" id="so2" placeholder="Nhap so thu hai">
+    <br><br>
+
+    <button onclick="tinh('+')">Cong</button>
+    <button onclick="tinh('-')">Tru</button>
+    <button onclick="tinh('*')">Nhan</button>
+    <button onclick="tinh('/')">Chia</button>
+    <p id="ketqua10"></p>
+
+    <hr>
+
+    <h2>BAI 11</h2> 
+    <h2>KIEM TRA MAT KHAU</h2>
+    <input type="password" id="matkhau" placeholder="Nhap mat khau">
+    <button onclick="kiemTraMK()">Kiem tra</button>
+    <p id="ketqua11"></p>
+
+
+    <h2>BAI 12</h2>
+    <h2>KIEM TRA NAM NHUAN</h2>
+    <input type="number" id="nam" placeholder="Nhap nam">
+    <button onclick="kiemTraNam()">Kiem tra</button>
+    <p id="ketqua12"></p>
+
+
+    <h2>BAI 13</h2>
+    <h2>CHUYEN DOI NHIET DO</h2>
+    <input type="number" id="doC" placeholder="Nhap do C">
+    <button onclick="chuyenDoi()">Chuyen doi</button>
+    <p id="ketqua13"></p>
+
+
+    <h2>BAI 14</h2> 
+    <h2>TINH CHI SO BMI</h2>
+    <label>Chieu cao (m):</label>
+    <input type="number" id="chieucao" step="any">
+    <br><br>
+
+    <label>Can nang (kg):</label>
+    <input type="number" id="cannang" step="any">
+    <br><br>
+
+    <button onclick="tinhBMI()">Tinh BMI</button>
+    <p id="ketqua14"></p>
+
+    <script>
+        //BAI 1
+        function kiemTra(){
+            let so = document.getElementById("songuyen").value;
+            if (so % 2 == 0 ){
+                document.getElementById("ketqua1").innerHTML ="so chan";
+            }else{
+                document.getElementById("ketqua1").innerHTML ="so le";
+            }
+        }
+        //BAI 2
+        function tinhTuoi(){
+            let yourBirth = document.getElementById("namsinh").value;
+            let currentYear = new Date().getFullYear();
+            let yourAge = currentYear - yourBirth;
+            document.getElementById("ketqua2").innerHTML = "Tuoi cua ban:" + yourAge;
+        }
+        //BAI 5
+        function soMayMan() {
+            let soNhap = Number(document.getElementById("so").value);
+            let soMayMan = Math.floor(Math.random() * 10) + 1;
+
+            if (soNhap < 1 || soNhap > 10) {
+                document.getElementById("ketqua3").innerHTML ="Vui long nhap so tu 1 den 10";
+            } else if (soNhap == soMayMan) {
+                document.getElementById("ketqua3").innerHTML =
+                "Chuc mung! Ban da thang";
+            } else {
+                document.getElementById("ketqua3").innerHTML =
+                "Chua may man! So may man la " + soMayMan;
+            }
+        }
+        //BAI 4
+        function xemBoi(){
+            let tenBan = document.getElementById("tenban").value;
+            let tenNguoiay = document.getElementById("tennguoiay").value;
+            let diem = Math.floor(Math.random()*100) + 1;
+            if (diem > 50){
+                document.getElementById("ketqua4").innerHTML = 
+                tenBan + "❤" + tenNguoiay + ".Diem:" + diem + ".Chuc mung. Hai ban rat hop";
+            }else{
+                document.getElementById("ketqua4").innerHTML = 
+                tenBan + "❤" + tenNguoiay + ".Diem:" + diem + ".Chia tay som bat dau kho";
+            }
+        }
+        //BAI 3
+        function diemHocLuc() {
+            let score = Number(document.getElementById("diem").value);
+            if (document.getElementById("diem").value === "" ||
+            score < 0 || score > 100) {
+                document.getElementById("ketqua5").innerHTML =
+                "Diem khong hop le";
+            } else if (score >= 90) {
+                document.getElementById("ketqua5").innerHTML = "A";
+            } else if (score >= 80) {
+                document.getElementById("ketqua5").innerHTML = "B";
+            } else if (score >= 70) {
+                document.getElementById("ketqua5").innerHTML = "C";
+            } else if (score >= 60) {
+                document.getElementById("ketqua5").innerHTML = "D";
+            } else {
+                document.getElementById("ketqua5").innerHTML = "F";
+            }
+        }
+        //BAI 6
+        function oanTuTi(nguoiChon) {
+            let may = ["Da", "Giay", "Keo"];
+            let i = Math.floor(Math.random() * 3);
+            let mayChon = may[i];
+            let ketqua;
+            if (nguoiChon == mayChon) {
+                ketqua = "Hoa!";
+            } else if (
+                (nguoiChon == "Da" && mayChon == "Keo") ||
+                (nguoiChon == "Giay" && mayChon == "Da") ||
+                (nguoiChon == "Keo" && mayChon == "Giay")
+            ) {
+                ketqua = "Ban thang!";
+            } else {
+                ketqua = "Ban thua!";
+            }
+            document.getElementById("ketqua6").innerHTML =
+            "Ban chon: " + nguoiChon +
+            "<br>May chon: " + mayChon +
+            "<br>Ket qua: " + ketqua;
+        }
+        // BAI 7
+        function lacXucXac() {
+            let so = Math.floor(Math.random() * 6) + 1;
+            document.getElementById("ketqua7").innerHTML =
+                "Ban lac duoc so: " + so;
+        }
+
+        // BAI 8
+        function duDoan() {
+            let ten = document.getElementById("ten").value;
+
+            let nghe = [
+                "Lap trinh vien",
+                "Giao vien",
+                "Bac si",
+                "Ky su",
+                "Dau bep",
+                "Thiet ke do hoa"
+            ];
+
+            let i = Math.floor(Math.random() * nghe.length);
+
+            if (ten == "") {
+                document.getElementById("ketqua8").innerHTML =
+                    "Vui long nhap ten";
+            } else {
+                document.getElementById("ketqua8").innerHTML =
+                    ten + " se tro thanh " + nghe[i];
+            }
+        }
+
+        // BAI 9
+        function quayThuong() {
+            let qua = [
+                "Gau bong",
+                "Sach",
+                "But",
+                "Binh nuoc",
+                "Hop qua bi mat"
+            ];
+
+            let i = Math.floor(Math.random() * qua.length);
+
+            document.getElementById("ketqua9").innerHTML =
+                "Chuc mung! Ban nhan duoc: " + qua[i];
+        }
+
+        // BAI 10
+        function tinh(phepTinh) {
+            let a = document.getElementById("so1").value;
+            let b = document.getElementById("so2").value;
+
+            if (a === "" || b === "") {
+                document.getElementById("ketqua10").innerHTML =
+                    "Vui long nhap du hai so";
+                return;
+            }
+
+            a = Number(a);
+            b = Number(b);
+
+            let kq;
+
+            if (phepTinh == "+") {
+                kq = a + b;
+            } else if (phepTinh == "-") {
+                kq = a - b;
+            } else if (phepTinh == "*") {
+                kq = a * b;
+            } else if (phepTinh == "/") {
+                if (b == 0) {
+                    document.getElementById("ketqua10").innerHTML =
+                        "Khong the chia cho 0";
+                    return;
+                }
+                kq = a / b;
+            }
+
+            document.getElementById("ketqua10").innerHTML =
+                "Ket qua: " + kq;
+        }
+
+        // BAI 11
+        function kiemTraMK() {
+            let mk = document.getElementById("matkhau").value;
+
+            if (mk.length >= 8) {
+                document.getElementById("ketqua11").innerHTML =
+                    "Mat khau hop le";
+            } else {
+                document.getElementById("ketqua11").innerHTML =
+                    "Mat khau qua ngan";
+            }
+        }
+
+        // BAI 12
+        function kiemTraNam() {
+            let nam = Number(document.getElementById("nam").value);
+
+            if (nam <= 0 || document.getElementById("nam").value == "") {
+                document.getElementById("ketqua12").innerHTML =
+                    "Vui long nhap nam hop le";
+            } else if (nam % 400 == 0 ||
+                      (nam % 4 == 0 && nam % 100 != 0)) {
+                document.getElementById("ketqua12").innerHTML =
+                    nam + " la nam nhuan";
+            } else {
+                document.getElementById("ketqua12").innerHTML =
+                    nam + " khong phai nam nhuan";
+            }
+        }
+
+        // BAI 13
+        function chuyenDoi() {
+            let c = document.getElementById("doC").value;
+
+            if (c === "") {
+                document.getElementById("ketqua13").innerHTML =
+                    "Vui long nhap nhiet do";
+                return;
+            }
+
+            c = Number(c);
+            let f = (9 / 5) * c + 32;
+
+            document.getElementById("ketqua13").innerHTML =
+                c + " do C = " + f.toFixed(2) + " do F";
+        }
+
+        // BAI 14
+        function tinhBMI() {
+            let cao = Number(document.getElementById("chieucao").value);
+            let nang = Number(document.getElementById("cannang").value);
+
+            if (document.getElementById("chieucao").value === "" ||
+                document.getElementById("cannang").value === "" ||
+                cao <= 0 || nang <= 0) {
+                document.getElementById("ketqua14").innerHTML =
+                    "Vui long nhap chieu cao va can nang hop le";
+                return;
+            }
+
+            let bmi = nang / (cao * cao);
+            let ketluan;
+
+            if (bmi < 18.5) {
+                ketluan = "Gay";
+            } else if (bmi < 25) {
+                ketluan = "Binh thuong";
+            } else if (bmi < 30) {
+                ketluan = "Thua can";
+            } else {
+                ketluan = "Beo phi";
+            }
+
+            document.getElementById("ketqua14").innerHTML =
+                "Chi so BMI: " + bmi.toFixed(2) +
+                "<br>Ket luan: " + ketluan;
+        }
+    </script>
+</body>
+</html>
